@@ -3480,17 +3480,33 @@ MOBILE FIX 2 – STARTSEITE, NAV, GALERIE-BUTTONS, TABELLEN
     .info-row{
         border-bottom:1px solid #262930 !important;
     }
+
+    /* --- Abstand zwischen Bild und gelbem Button halbieren --- */
+    .galerie-button{
+        margin-top:6px !important;
+    }
 }
 
 @media (max-width:480px){
 
     .kategorien{
         grid-template-columns:repeat(3,1fr) !important;
-        gap:8px !important;
+        gap:6px !important;
     }
 
     .galerie-nav{
-        grid-template-columns:repeat(2,1fr) !important;
+        grid-template-columns:repeat(3,1fr) !important;
+        gap:6px !important;
+    }
+
+    .galerie-nav-btn{
+        min-height:44px !important;
+        padding:8px 4px !important;
+        gap:4px !important;
+    }
+
+    .galerie-nav-btn i{
+        font-size:14px !important;
     }
 
     .hero img{
