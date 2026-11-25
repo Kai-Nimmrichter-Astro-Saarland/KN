@@ -1657,6 +1657,8 @@ BUTTON
 
     align-items:center;
 
+    gap:.3em; /* Leerzeichen zwischen mehreren Wörtern/Spans im Button (Flex schluckt sie sonst) */
+
     background:#b49367;
 
     color:#ffffff;
@@ -2934,7 +2936,7 @@ ZEILEN
 
 .info-row{
     display:grid;
-    grid-template-columns:170px 1fr;
+    grid-template-columns:240px 1fr; /* war 170px – lange Labels wie "Gesamtbelichtung:" ragten in den Wert */
     border-bottom:1px solid #30343b;
 }
 
@@ -3513,4 +3515,33 @@ MOBILE FIX 2 – STARTSEITE, NAV, GALERIE-BUTTONS, TABELLEN
         height:auto !important;
         object-fit:contain !important;
     }
+}
+
+
+/*======================================================
+DATENKARTEN – BESCHRIFTUNGSSPALTE (NUR DESKTOP)
+Stand 25.11.2026: Labels wie "Aufnahmedatum:" und
+"Gesamtbelichtung:" passen jetzt in die linke Spalte.
+Auf dem Handy bleibt alles wie bisher (Label über Wert).
+======================================================*/
+
+@media (min-width:769px){
+
+    /* Sternhaufen / Komet-Seiten (hatten 170px !important) */
+    .objekt-daten-2 .info-row{
+        grid-template-columns:225px 1fr !important;
+    }
+
+    /* 3-Spalten-Karten (M42, M81/M82, Leo, M106, Jupiter, Saturn):
+       etwas breitere Spalte und Label 15px, damit auch
+       "Gesamtbelichtungszeit" (M42) hineinpasst */
+    .objekt-daten-3 .info-row{
+        grid-template-columns:255px 1fr;
+    }
+
+    .objekt-daten-3 .info-row span:first-child,
+    .objekt-daten-3 .info-row span:first-child span{
+        font-size:15px;
+    }
+
 }
